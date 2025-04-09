@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Received Data</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: sans-serif;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Received Data</h1>
+
+  <% if (rows.length === 0) { %>
+    <p>No data found, sire.</p>
+  <% } else { %>
+    <table>
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>Origin</th>
+              <th>MIME Data</th>
+              <th>Datetime</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% rows.forEach(row => { %>
+              <tr>
+                <td><%= row.id %></td>
+                <td><%= row.origin %></td>
+                <td><pre style="white-space: pre-wrap;"><%= row.mime_data %></pre></td>
+                <td><%= row.datetime %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+          
+    </table>
+  <% } %>
+</body>
+</html>
